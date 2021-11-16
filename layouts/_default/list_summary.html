@@ -1,6 +1,7 @@
 <article class="sn">
 
-  {{ partial "thumbnail.html" . }}
+  {{ partial "thumbnail.html" . }}  
+
   <header class="article-header">
     <h1 class="title">{{ .Title }}</h1>
 
@@ -29,7 +30,15 @@
   </div>
   {{ end }}
 
-  <div class="article-body">{{ .Content }}</div>
+  <div class="article-body">{{ .Content }}
+
+    <ul>
+      {{ range .RegularPages }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a><br>{{ .Summary | safeHTML | truncate 30 }} </li>
+      {{ end  }}
+    </ul>
+  </div>
+
 
   <footer class="article-footer">
 
@@ -53,3 +62,4 @@
   </footer>
 
 </article>
+

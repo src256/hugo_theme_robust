@@ -32,13 +32,7 @@
   background-size: cover;
   background-position: center;
 }
-{{ range $p := .Site.RegularPages }}
-  {{ with $p.Params.thumbnail }}
-.thumb-{{ $p.File.UniqueID }} {
-  background-image: url("{{ . | absURL }}");
-}
-  {{ end }}
-{{ end }}
+
 
 {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
 {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
@@ -74,6 +68,7 @@ ga('send', 'pageview');
         <div class="mcol c4">
           <aside class="l-sidebar">
             {{ partial "author.html" . }}
+            {{ partial "menu.html" . }}            
             {{ partial "latests.html" . }}
             {{ partial "categories.html" . }}
             {{ partial "tags.html" . }}
@@ -88,6 +83,7 @@ ga('send', 'pageview');
         <aside>
           <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
           <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+          <p><a href="/privacy">プライバシーポリシー</a></p>
         </aside>
       </div>
     </footer>

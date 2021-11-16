@@ -1,24 +1,23 @@
 {{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
 
 {{ define "main" }}
+
 {{ if not .IsHome }}
-<header class="page-title">
-  <h1 class="title">{{ .Title }}</h1>
-</header>
+{{ .Render "list_summary" }}
 {{ end }}
 
+{{ if .IsHome }}
 <div class="articles">
   <div class="mrow">
 
     {{ $pctx := . }}
     {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
-    {{ $paginator := .Paginate $pctx.RegularPages }}
+    {{ $paginator := .Paginate $pctx.RegularPages.ByDate.Reverse }}
     {{ range $paginator.Pages }}
     <div class="mcol c6">
       <article class="li">
         <a href="{{ .Permalink }}">
-          <div class="thumb thumb-{{ .File.UniqueID }}"></div>
-
+          {{ partial "thumbnail.html" . }}
           <div class="inner">
             <h2 class="title">{{ .Title }}</h2>
 
@@ -42,6 +41,7 @@
 
   </div>
 </div>
+{{ end }}
 
 {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
 <nav class="paging">

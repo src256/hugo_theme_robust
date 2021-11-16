@@ -1,0 +1,6 @@
+{{ if .Params.thumbnail }}
+  {{ $image := .Resources.GetMatch .Params.thumbnail }}
+<div class="thumb" style="background-image: url('{{ $image.RelPermalink }}');"></div>
+ {{ else }}
+<div class="thumb"></div>
+{{ end }}
