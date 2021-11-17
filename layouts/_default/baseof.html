@@ -46,6 +46,10 @@ ga('create', {{ .Site.GoogleAnalytics }}, 'auto', {'useAmpClientId': true});
 ga('send', 'pageview');
 </script>
 {{ end }}
+
+{{ if and .Site.Params.googleAdSense (ne (getenv "HUGO_ENV") "DEV") }}
+{{ .Site.Params.googleAdSense | safeHTML }}
+{{ end }}
   </head>
   <body>
     <header class="l-header">
