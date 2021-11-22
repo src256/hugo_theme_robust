@@ -1,6 +1,12 @@
 {{ if .Params.thumbnail }}
-  {{ $image := .Resources.GetMatch .Params.thumbnail }}
-<div class="thumb" style="background-image: url('{{ $image.RelPermalink }}');"></div>
+
+{{ $image := .Resources.GetMatch .Params.thumbnail }}
+{{ if $image }}
+<div class="thumb" style="background-image: url('{{ $image.Permalink }}');"></div>
+{{ else }}
+<div class="thumb" style="background-image: url('{{ .Params.thumbnail | absURL }}');"></div>
+{{ end }}
+
  {{ else }}
 <div class="thumb"></div>
 {{ end }}
