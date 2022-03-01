@@ -1,0 +1,11 @@
+{{ if .Params.eyecatch }}
+{{ $image := .Resources.GetMatch .Params.eyecatch }}
+{{ if $image }}
+<div class="thumb" style="background-image: url('{{ $image.Permalink }}');"></div>
+{{ else }}
+<div class="thumb" style="background-image: url('{{ .Params.eyecatch | absURL }}');"></div>
+{{ end }}
+
+{{ else }}
+  {{ partial "thumbnail.html" . }}
+{{ end }}
