@@ -72,7 +72,9 @@ ga('send', 'pageview');
         <div class="mcol c4">
           <aside class="l-sidebar">
             {{ partial "author.html" . }}
-            {{ partial "menu.html" . }}            
+            {{ if .Site.Params.EnableMenu | default false }}
+            {{ partial "menu.html" . }}
+            {{ end }}
             {{ partial "latests.html" . }}
             {{ partial "categories.html" . }}
             {{ partial "tags.html" . }}

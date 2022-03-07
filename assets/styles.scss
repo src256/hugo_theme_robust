@@ -11,7 +11,7 @@ html {
 
 body {
   color: #333;
-  font-family: 'Roboto Slab','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif;
+  font-family: "Roboto", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", sans-serif !important;
   font-feature-settings : "palt";
   font-size: inherit;
   line-height: 1rem;
@@ -49,19 +49,31 @@ ul, ol {
 }
 
 table {
-  border-collapse: collapse;
-  display: block;
-  overflow-x: auto;
+    border: none;    
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
 }
 
 th, td {
-  font-size: .8rem;
-  padding: .5rem;
+  padding: 0.5em 0.75em;
+  vertical-align: top;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;  
 }
 
-tr {
-  border-bottom: 1px dashed #ddd;
+th {
+  background-color: #f8f8f8;    
 }
+
+td:last-child, th:last-child {
+  border-right: 1px solid #ccc;      
+}
+
+tr:last-child>td, tr:last-child>th {
+  border-bottom: 1px solid #ccc;
+}
+
 
 /* Layouts */
 main, aside {
@@ -89,6 +101,7 @@ main {
   text-align: center;
 
   .description {
+    display: block;      
     margin-top: .5rem;
     font-size: .8rem;
   }
@@ -217,7 +230,10 @@ article.lism .inner {
   display: table-cell;
   vertical-align: middle;
   height: 5rem;
-  padding: 0 .75rem;
+  padding-top: 2px;
+  padding-right: 0.75rem;
+  padding-bottom: 2px;
+  padding-left: 0.75rem;
 }
 
 article.lism .thumb {
@@ -248,11 +264,13 @@ article.sn .thumb {
   }
 }
 
+
 article.sn > .article-header,
 article.sn > .article-body,
 article.sn .article-footer {
   padding: 2rem;
 }
+
 
 article.sn > .article-body {
   padding: 0 2rem;
@@ -273,7 +291,7 @@ article.sn > .article-body {
 article.sn > .article-header .title {
   font-size: 1.8rem;
   line-height: 2rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -313,7 +331,6 @@ article.sn > .article-body ol {
 }
 
 article.sn > .article-body li {
-  padding-bottom: .5rem;
   line-height: 1.5rem;
 }
 
@@ -591,8 +608,14 @@ section {
   }
 }
 
+.menu {
+  line-height: 1.5rem;    
+}
+
 @media (max-width: 768px) {
   .toc {
     padding: 0 1rem;
   }
 }
+
+
