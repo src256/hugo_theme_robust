@@ -34,7 +34,7 @@
 
     <ul>
       {{ range .RegularPages }}
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a><br>{{ .Summary | safeHTML | truncate 30 }} </li>
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a><br>{{ .Summary | safeHTML}}…</li>
       {{ end  }}
     </ul>
   </div>
