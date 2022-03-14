@@ -34,8 +34,19 @@
 
     <ul>
       {{ range .RegularPages }}
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a><br>{{ .Summary | safeHTML}}…</li>
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a><br>{{ plainify .Summary | safeHTML}}
+	      {{ if .Truncated }}
+	      ...
+	      {{ end }}
+      </li>
       {{ end  }}
+      {{ range .Sections }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a><br>{{ plainify .Summary | safeHTML}}
+	      {{ if .Truncated }}
+	      ...
+	      {{ end }}	
+      </li>      
+      {{ end  }}      
     </ul>
   </div>
 

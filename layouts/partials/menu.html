@@ -12,6 +12,11 @@
         {{ range $pages }}
         <li>&nbsp;&nbsp;<a href="{{ .Permalink }}">{{ .Title }}</a>
         {{ end }}
+
+        {{ $sections := .Sections }}
+        {{ range $sections }}
+        <li>&nbsp;&nbsp;<a href="{{ .Permalink }}">{{ .Title }}</a>	  
+        {{ end }}          
       </ul>
     </li>
     {{ end }}
