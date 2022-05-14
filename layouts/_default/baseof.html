@@ -75,6 +75,9 @@
         <div class="mcol c4">
           <aside class="l-sidebar">
             {{ partial "author.html" . }}
+            {{ if .Site.Params.EnableSearch | default false }}	    
+            {{ partial "search.html" . }}
+            {{ end }}	    
             {{ if .Site.Params.EnableMenu | default false }}
             {{ partial "menu.html" . }}
             {{ end }}
