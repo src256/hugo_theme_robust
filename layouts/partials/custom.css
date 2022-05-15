@@ -20,14 +20,29 @@
   border-radius: 4px;
 }
 
-.search table, th, td, tr {
+.search table {
   border: none;
 }
-.search tr:last-child > td, tr:last-child > th {
-  border-bottom: none;
-}
-.search tr:last-child > td, tr:last-child > th {
-  border-right: none;
+
+.search tr {
+  border: none;      
 }
 
+.search th {
+  border: none;    
+}
+
+.search td {
+  border: none;      
+}
+
+.search tr:last-child > td {
+  border-bottom: none;
+  border-right: none;    
+}
+
+.search tr:last-child > th {
+  border-bottom: none;
+  border-right: none;        
+}
 
