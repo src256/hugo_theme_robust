@@ -12,6 +12,9 @@
       {{ with .Section }}
       <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . | upper }}</a></li>
       {{ end }}
+      {{ range .Params.tags }}
+      <li><i class="fas fa-tags" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
+      {{ end }}      
       {{ if eq (getenv "HUGO_ENV") "DEV" }}
       <li>{{ .WordCount }} Words</li>
       {{ end }}
@@ -19,7 +22,7 @@
       <li style="color: #2196f3;">DRAFT</li>
       {{ end }}
     </ul>
-
+    
     {{ partial "share.html" . }}
   </header>
 
