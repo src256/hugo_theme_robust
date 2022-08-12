@@ -11,7 +11,7 @@
       {{ end }}
       {{ with .Section }}
       <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . | upper }}</a></li>
-      {{ end }}
+      {{ end }}      
       {{ range .Params.tags }}
       <li><i class="fas fa-tags" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}      
@@ -26,7 +26,7 @@
     {{ partial "share.html" . }}
   </header>
 
-  {{ if .Params.toc }}
+  {{ if and (gt .WordCount 400 ) (ne .Params.toc false) }}
   <div class="toc">
     {{ .TableOfContents }}
   </div>
@@ -35,24 +35,7 @@
   <div class="article-body">{{ .Content }}</div>
 
   <footer class="article-footer">
-
     {{ partial "share.html" . }}
-
-    {{ $params := .Params }}
-    {{ range $key, $value := $.Site.Taxonomies }}
-    {{ if isset $params $key }}
-    <section class="footer">
-      <header>
-        <a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/">{{ $key | upper }}</a>
-      </header>
-      <ul class="terms">
-        {{ range (index $params $key) }}
-        <li><a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/{{ . | urlize }}/">{{ . }}</a></li>
-        {{ end }}
-      </ul>
-    </section>
-    {{ end }}
-    {{ end }}
   </footer>
 
 </article>
