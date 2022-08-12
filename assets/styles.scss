@@ -632,13 +632,8 @@ section {
   }
 }
 
-
-article.sn > .article-body pre {
+pre code {
     background-color: #364549;
-    color: #e3e3e3;
-    font-size: .8em;
-    line-height: 1.4rem;
-    margin: 1.5em -16px;
-    padding: 1em 16px;
-    overflow: auto;
+    color: #e3e3e3;    
+
 }
