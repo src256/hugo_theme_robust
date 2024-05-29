@@ -1,0 +1,10 @@
+{{ $thumbnailurl := ""}}
+{{ if .Params.thumbnail }}
+  {{ $image := .Resources.GetMatch .Params.thumbnail }}
+  {{ if $image }}
+    {{ $thumbnailurl = $image.Permalink }}
+  {{ else }}
+    {{ $thumbnailurl = .Params.thumbnail | absURL }}
+  {{ end }}
+{{ end }}
+{{ return $thumbnailurl }}

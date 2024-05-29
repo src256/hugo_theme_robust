@@ -1,0 +1,12 @@
+{{ $eyecatchurl := ""}}
+{{ if .Params.eyecatch }}
+    {{ $image := .Resources.GetMatch .Params.eyecatch }}
+    {{ if $image }}
+        {{ $eyecatchurl = $image.Permalink }}
+    {{ else }}
+        {{ $eyecatchurl = .Params.eyecatch | absURL }}
+    {{ end }}
+{{ else }}
+    {{ $eyecatchurl = partial "thumbnailurl.html" . }}
+{{ end }}
+{{ return $eyecatchurl }}
