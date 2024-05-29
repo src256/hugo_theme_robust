@@ -1,3 +1,7 @@
+{{ if .Site.Params.breadcrumb }}
+{{ partial "breadcrumb.html" . }}
+{{ end }}
+
 <article class="sn">
 
   {{ partial "eyecatch.html" . }}
